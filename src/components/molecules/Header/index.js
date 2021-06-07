@@ -1,12 +1,29 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {fonts} from '../../../utils';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {ic_back as IcBack} from '../../../assets';
+import {colors, fonts} from '../../../utils';
 
-const Header = ({title, subTitle}) => {
+const Header = ({title, subTitle, onBack}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.subTitle}>{subTitle}</Text>
+      {onBack && (
+        <TouchableOpacity activeOpacity={0.7} onPress={onBack}>
+          <View
+            style={{
+              backgroundColor: colors.primary,
+              padding: 16,
+              marginRight: 16,
+              marginTop: -10,
+            }}>
+            <IcBack />
+          </View>
+        </TouchableOpacity>
+      )}
+
+      <View>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.subTitle}>{subTitle}</Text>
+      </View>
     </View>
   );
 };
@@ -17,17 +34,19 @@ const styles = StyleSheet.create({
   subTitle: {
     fontSize: 14,
     fontFamily: fonts.primary[300],
-    color: '#8D92A3',
+    color: colors.text.secondary,
   },
   container: {
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
     paddingHorizontal: 24,
     paddingTop: 30,
     paddingBottom: 24,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   title: {
     fontSize: 22,
     fontFamily: fonts.primary[500],
-    color: '#020202',
+    color: colors.text.primary,
   },
 });

@@ -1,26 +1,33 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {fonts} from '../../../utils';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {colors, fonts} from '../../../utils';
 
-const Button = ({text, color = '#FFC700'}) => {
+const Button = ({
+  text,
+  color = colors.Button.primary.background,
+  textColor = colors.Button.primary.text,
+  onPress,
+}) => {
   return (
-    <View style={styles.container(color)}>
-      <Text style={styles.text}>{text}</Text>
-    </View>
+    <TouchableOpacity activeOpacity={0.7} onPress={onPress}>
+      <View style={styles.container(color)}>
+        <Text style={styles.text(textColor)}>{text}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
 export default Button;
 
 const styles = StyleSheet.create({
-  text: {
+  text: (textColor) => ({
     fontSize: 14,
     fontFamily: fonts.primary[500],
-    color: color,
+    color: textColor,
     textAlign: 'center',
-  },
+  }),
   container: (color) => ({
-    backgroundColor: '#FFC700',
+    backgroundColor: color,
     padding: 12,
     borderRadius: 8,
   }),
