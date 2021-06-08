@@ -20,7 +20,7 @@ export const colors = {
   secondary: mainColors.grey1,
   //   tertiary: mainColors.blue1,
   white: 'white',
-  black: 'black',
+  black: mainColors.black1,
   //   disable: mainColors.grey3,
   text: {
     primary: mainColors.black1,

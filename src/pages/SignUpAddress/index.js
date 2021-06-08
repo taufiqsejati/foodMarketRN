@@ -1,15 +1,15 @@
 import React from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import {Gap, TextInput, Header, Button} from '../../components';
+import {Gap, TextInput, Header, Button, Select} from '../../components';
 import {colors, fonts} from '../../utils';
 
-const SignUp = ({navigation}) => {
+const SignUpAddress = ({navigation}) => {
   return (
     <View style={styles.page}>
       <ScrollView>
         <Header
-          title="Sign Up"
-          subTitle="Register and eat"
+          title="Address"
+          subTitle="Make sure it’s valid"
           onBack={() => {
             navigation.goBack();
           }}
@@ -22,19 +22,18 @@ const SignUp = ({navigation}) => {
               </View>
             </View>
           </View>
-          <TextInput label="Full Name" placeholder="Type your full name" />
+          <TextInput label="Phone No." placeholder="Type your phone number" />
           <Gap height={16} />
-          <TextInput
-            label="Email Address"
-            placeholder="Type your email address"
-          />
+          <TextInput label="Address" placeholder="Type your address" />
           <Gap height={16} />
-          <TextInput label="Password" placeholder="Type your password" />
+          <TextInput label="House No." placeholder="Type your house number" />
+          <Gap height={16} />
+          <Select label="City" />
           <Gap height={24} />
           <Button
-            text="Continue"
+            text="Sign Up Now"
             onPress={() => {
-              navigation.navigate('SignUpAddress');
+              navigation.replace('SuccessSignUp');
             }}
           />
         </View>
@@ -43,7 +42,7 @@ const SignUp = ({navigation}) => {
   );
 };
 
-export default SignUp;
+export default SignUpAddress;
 
 const styles = StyleSheet.create({
   photo: {alignItems: 'center', marginTop: 26, marginBottom: 16},
