@@ -1,52 +1,50 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {FoodDummy1} from '../../../assets';
 import {colors, fonts} from '../../../utils';
 import Rating from '../Rating';
 
-const ItemListFood = ({image}) => {
+const ItemListFood = ({image, onPress}) => {
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        backgroundColor: 'white',
-        paddingHorizontal: 24,
-        paddingVertical: 8,
-        alignItems: 'center',
-      }}>
-      <Image
-        source={image}
-        style={{
-          width: 60,
-          height: 60,
-          borderRadius: 8,
-          overflow: 'hidden',
-          marginRight: 12,
-        }}
-      />
-      <View style={{flex: 1}}>
-        <Text
-          style={{
-            fontFamily: fonts.primary.normal,
-            fontSize: 16,
-            color: colors.text.primary,
-          }}>
-          Soup Bumil
-        </Text>
-        <Text
-          style={{
-            fontFamily: fonts.primary.normal,
-            fontSize: 13,
-            color: colors.text.secondary,
-          }}>
-          IDR 289.000
-        </Text>
+    <TouchableOpacity activeOpacity={0.7} onPress={onPress}>
+      <View style={styles.container}>
+        <Image source={image} style={styles.image} />
+        <View style={styles.content}>
+          <Text style={styles.title}>Soup Bumil</Text>
+          <Text style={styles.price}>IDR 289.000</Text>
+        </View>
+        <Rating />
       </View>
-      <Rating />
-    </View>
+    </TouchableOpacity>
   );
 };
 
 export default ItemListFood;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  price: {
+    fontFamily: fonts.primary.normal,
+    fontSize: 13,
+    color: colors.text.secondary,
+  },
+  title: {
+    fontFamily: fonts.primary.normal,
+    fontSize: 16,
+    color: colors.text.primary,
+  },
+  content: {flex: 1},
+  image: {
+    width: 60,
+    height: 60,
+    borderRadius: 8,
+    overflow: 'hidden',
+    marginRight: 12,
+  },
+  container: {
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    paddingHorizontal: 24,
+    paddingVertical: 8,
+    alignItems: 'center',
+  },
+});

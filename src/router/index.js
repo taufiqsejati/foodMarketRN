@@ -63,6 +63,11 @@ const Router = () => {
         component={MainApp}
         options={{headerShown: false}}
       />
+      <Stack.Screen
+        name="FoodDetail"
+        component={screens.FoodDetail}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 };

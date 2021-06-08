@@ -1,4 +1,5 @@
 export {default as BottomNavigator} from './BottomNavigator';
+export {default as Counter} from './Counter';
 export {default as FoodCard} from './FoodCard';
 export {default as Header} from './Header';
 export {default as HomeProfile} from './HomeProfile';

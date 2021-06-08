@@ -4,6 +4,7 @@ import {SceneMap, TabBar, TabView} from 'react-native-tab-view';
 import {ItemListFood} from '..';
 import {FoodDummy1, FoodDummy2, FoodDummy3, FoodDummy4} from '../../../assets';
 import {colors, fonts} from '../../../utils';
+import {useNavigation} from '@react-navigation/native';
 
 const renderTabBar = (props) => (
   <TabBar
@@ -17,30 +18,99 @@ const renderTabBar = (props) => (
   />
 );
 
-const NewTaste = () => (
-  <View style={{paddingTop: 8}}>
-    <ItemListFood image={FoodDummy1} />
-    <ItemListFood image={FoodDummy2} />
-    <ItemListFood image={FoodDummy3} />
-    <ItemListFood image={FoodDummy4} />
-  </View>
-);
-const Popular = () => (
-  <View style={{paddingTop: 8}}>
-    <ItemListFood image={FoodDummy1} />
-    <ItemListFood image={FoodDummy2} />
-    <ItemListFood image={FoodDummy3} />
-    <ItemListFood image={FoodDummy4} />
-  </View>
-);
-const Recommended = () => (
-  <View style={{paddingTop: 8}}>
-    <ItemListFood image={FoodDummy1} />
-    <ItemListFood image={FoodDummy2} />
-    <ItemListFood image={FoodDummy3} />
-    <ItemListFood image={FoodDummy4} />
-  </View>
-);
+const NewTaste = () => {
+  const navigation = useNavigation();
+  return (
+    <View style={{paddingTop: 8}}>
+      <ItemListFood
+        image={FoodDummy1}
+        onPress={() => {
+          navigation.navigate('FoodDetail');
+        }}
+      />
+      <ItemListFood
+        image={FoodDummy2}
+        onPress={() => {
+          navigation.navigate('FoodDetail');
+        }}
+      />
+      <ItemListFood
+        image={FoodDummy3}
+        onPress={() => {
+          navigation.navigate('FoodDetail');
+        }}
+      />
+      <ItemListFood
+        image={FoodDummy4}
+        onPress={() => {
+          navigation.navigate('FoodDetail');
+        }}
+      />
+    </View>
+  );
+};
+const Popular = () => {
+  const navigation = useNavigation();
+  return (
+    <View style={{paddingTop: 8}}>
+      <ItemListFood
+        image={FoodDummy1}
+        onPress={() => {
+          navigation.navigate('FoodDetail');
+        }}
+      />
+      <ItemListFood
+        image={FoodDummy2}
+        onPress={() => {
+          navigation.navigate('FoodDetail');
+        }}
+      />
+      <ItemListFood
+        image={FoodDummy3}
+        onPress={() => {
+          navigation.navigate('FoodDetail');
+        }}
+      />
+      <ItemListFood
+        image={FoodDummy4}
+        onPress={() => {
+          navigation.navigate('FoodDetail');
+        }}
+      />
+    </View>
+  );
+};
+const Recommended = () => {
+  const navigation = useNavigation();
+  return (
+    <View style={{paddingTop: 8}}>
+      <ItemListFood
+        image={FoodDummy1}
+        onPress={() => {
+          navigation.navigate('FoodDetail');
+        }}
+      />
+      <ItemListFood
+        image={FoodDummy2}
+        onPress={() => {
+          navigation.navigate('FoodDetail');
+        }}
+      />
+      <ItemListFood
+        image={FoodDummy3}
+        onPress={() => {
+          navigation.navigate('FoodDetail');
+        }}
+      />
+      <ItemListFood
+        image={FoodDummy4}
+        onPress={() => {
+          navigation.navigate('FoodDetail');
+        }}
+      />
+    </View>
+  );
+};
 
 const initialLayout = {width: Dimensions.get('window').width};
 const HomeTabSection = () => {
