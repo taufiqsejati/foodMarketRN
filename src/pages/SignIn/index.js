@@ -3,16 +3,25 @@ import {StyleSheet, Text, View} from 'react-native';
 import {Button, Gap, TextInput, Header} from '../../components';
 import {colors} from '../../utils';
 import useForm from '../../utils/UseForm';
+import Axios from 'axios';
 
 const SignIn = ({navigation}) => {
   // const [email, setEmail] = useState('');
   // const [password, setPassword] = useState('');
   const [form, setForm] = useForm({
     email: '',
-    passwrod: '',
+    password: '',
   });
   const onSubmit = () => {
-    console.log(['email', form.email, 'password', form.password]);
+    // console.log(['email', form.email, 'password', form.password]);
+    console.log('form :', form);
+    Axios.post('http://foodmarket-backend.test/api/login', form)
+      .then((res) => {
+        console.log('success', res);
+      })
+      .catch((err) => {
+        console.log('error', err);
+      });
   };
   return (
     <View style={styles.page}>
