@@ -1,5 +1,5 @@
 const mainColors = {
-  //   green1: '#0BCAD4',
+  green1: '#1ABC9C',
   //   green2: '#EDFCFD',
   //   dark1: '#112340',
   //   dark2: '#495A75',
@@ -11,7 +11,7 @@ const mainColors = {
   //   blue1: '#0066CB',
   black1: '#020202',
   //   black2: 'rgba(0,0,0,0.5)',
-  //   red1: '#E06379',
+  red1: '#D9435E',
   yellow1: '#FFC700',
 };
 
@@ -25,6 +25,7 @@ export const colors = {
   text: {
     primary: mainColors.black1,
     secondary: mainColors.grey1,
+    tertiary: mainColors.green1,
     // menuInactive: mainColors.dark2,
     // menuActive: mainColors.green1,
     // subTitle: mainColors.dark3,
@@ -38,6 +39,10 @@ export const colors = {
       background: mainColors.grey1,
       text: 'white',
     },
+    tertiary: {
+      background: mainColors.red1,
+      text: 'white',
+    },
     // disable: {
     //   background: mainColors.grey3,
     //   text: mainColors.grey4,
@@ -46,5 +51,5 @@ export const colors = {
   //   border: mainColors.grey2,
   //   cardLight: mainColors.green2,
   //   loadingBackground: mainColors.black2,
-  //   error: mainColors.red1,
+  error: mainColors.red1,
 };

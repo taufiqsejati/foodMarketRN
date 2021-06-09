@@ -1,19 +1,85 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {FoodDummy1} from '../../../assets';
 import {colors, fonts} from '../../../utils';
 import Rating from '../Rating';
 
-const ItemListFood = ({image, onPress}) => {
+const ItemListFood = ({
+  image,
+  onPress,
+  rating,
+  items,
+  price,
+  type,
+  name,
+  date,
+  status,
+}) => {
+  const renderContent = () => {
+    switch (type) {
+      case 'product':
+        return (
+          <>
+            <View style={styles.content}>
+              <Text style={styles.title}>{name}</Text>
+              <Text style={styles.price}>IDR {price}</Text>
+            </View>
+            <Rating rating={rating} />
+          </>
+        );
+      case 'order-summary':
+        return (
+          <>
+            <View style={styles.content}>
+              <Text style={styles.title}>{name}</Text>
+              <Text style={styles.price}>IDR {price}</Text>
+            </View>
+            <Text style={styles.items}>{items} items</Text>
+          </>
+        );
+      case 'in-progress':
+        return (
+          <>
+            <View style={styles.content}>
+              <Text style={styles.title}>{name}</Text>
+              <Text style={styles.price}>
+                {items} items . IDR {price}
+              </Text>
+            </View>
+          </>
+        );
+      case 'past-order':
+        return (
+          <>
+            <View style={styles.content}>
+              <Text style={styles.title}>{name}</Text>
+              <Text style={styles.price}>
+                {items} items . IDR {price}
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.date}>{date}</Text>
+              <Text style={styles.status}>{status}</Text>
+            </View>
+          </>
+        );
+      default:
+        return (
+          <>
+            <View style={styles.content}>
+              <Text style={styles.title}>{name}</Text>
+              <Text style={styles.price}>IDR {price}</Text>
+            </View>
+            <Rating />
+          </>
+        );
+    }
+  };
+
   return (
     <TouchableOpacity activeOpacity={0.7} onPress={onPress}>
       <View style={styles.container}>
         <Image source={image} style={styles.image} />
-        <View style={styles.content}>
-          <Text style={styles.title}>Soup Bumil</Text>
-          <Text style={styles.price}>IDR 289.000</Text>
-        </View>
-        <Rating />
+        {renderContent()}
       </View>
     </TouchableOpacity>
   );
@@ -22,6 +88,21 @@ const ItemListFood = ({image, onPress}) => {
 export default ItemListFood;
 
 const styles = StyleSheet.create({
+  status: {
+    fontSize: 10,
+    fontFamily: fonts.primary.normal,
+    color: colors.error,
+  },
+  date: {
+    fontSize: 10,
+    fontFamily: fonts.primary.normal,
+    color: colors.text.secondary,
+  },
+  items: {
+    fontSize: 13,
+    fontFamily: fonts.primary.normal,
+    color: colors.text.secondary,
+  },
   price: {
     fontFamily: fonts.primary.normal,
     fontSize: 13,
@@ -43,7 +124,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     backgroundColor: 'white',
-    paddingHorizontal: 24,
+    // paddingHorizontal: 24,
     paddingVertical: 8,
     alignItems: 'center',
   },

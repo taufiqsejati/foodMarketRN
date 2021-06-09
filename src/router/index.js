@@ -68,6 +68,21 @@ const Router = () => {
         component={screens.FoodDetail}
         options={{headerShown: false}}
       />
+      <Stack.Screen
+        name="OrderDetail"
+        component={screens.OrderDetail}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="OrderSummary"
+        component={screens.OrderSummary}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="SuccessOrder"
+        component={screens.SuccessOrder}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 };

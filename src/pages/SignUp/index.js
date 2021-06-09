@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     borderColor: colors.secondary,
     width: 110,
     height: 110,
+    borderRadius: 110,
     borderStyle: 'dashed',
     justifyContent: 'center',
     alignItems: 'center',

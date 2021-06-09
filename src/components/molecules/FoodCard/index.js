@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {Rating} from '..';
+import Rating from '../Rating';
 import {colors, fonts} from '../../../utils';
 
 const FoodCard = ({image, onPress}) => {
