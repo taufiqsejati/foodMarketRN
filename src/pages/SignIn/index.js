@@ -44,10 +44,10 @@ const SignIn = ({navigation}) => {
         <Gap height={24} />
         <Button
           text="Sign In"
-          onPress={onSubmit}
-          // onPress={() => {
-          //   navigation.replace('MainApp');
-          // }}
+          // onPress={onSubmit}
+          onPress={() => {
+            navigation.replace('MainApp');
+          }}
         />
         <Gap height={12} />
         <Button

@@ -3,7 +3,7 @@ import {Dimensions, StyleSheet, Text, View} from 'react-native';
 import {SceneMap, TabBar, TabView} from 'react-native-tab-view';
 import {colors, fonts} from '../../../utils';
 import {useNavigation} from '@react-navigation/native';
-import {ItemListMenu} from '../ItemListMenu';
+import ItemListMenu from '../ItemListMenu';
 
 const renderTabBar = (props) => (
   <TabBar
