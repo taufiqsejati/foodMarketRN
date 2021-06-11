@@ -8,6 +8,7 @@ export {default as HomeTabSection} from './HomeTabSection';
 export {default as ItemListFood} from './ItemListFood';
 export {default as ItemListMenu} from './ItemListMenu';
 export {default as ItemValue} from './ItemValue';
+export {default as Loading} from './Loading';
 export {default as OrderTabSection} from './OrderTabSection';
 export {default as ProfileTabSection} from './ProfileTabSection';
 export {default as Rating} from './Rating';

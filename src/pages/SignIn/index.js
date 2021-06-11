@@ -9,19 +9,19 @@ const SignIn = ({navigation}) => {
   // const [email, setEmail] = useState('');
   // const [password, setPassword] = useState('');
   const [form, setForm] = useForm({
-    email: '',
-    password: '',
+    email: 'ayuno@yolo.id',
+    password: 'Jakarta48Nabilah',
   });
   const onSubmit = () => {
     // console.log(['email', form.email, 'password', form.password]);
     console.log('form :', form);
-    Axios.post('http://foodmarket-backend.test/api/login', form)
-      .then((res) => {
-        console.log('success', res);
-      })
-      .catch((err) => {
-        console.log('error', err);
-      });
+    // Axios.post('http://foodmarket-backend.buildwithangga.id/api/login', form)
+    //   .then((res) => {
+    //     console.log('success', res.data.meta.status);
+    //   })
+    //   .catch((err) => {
+    //     console.log('error', err);
+    //   });
   };
   return (
     <View style={styles.page}>
@@ -44,9 +44,9 @@ const SignIn = ({navigation}) => {
         <Gap height={24} />
         <Button
           text="Sign In"
-          // onPress={onSubmit}
           onPress={() => {
-            navigation.replace('MainApp');
+            // navigation.replace('MainApp');
+            onSubmit();
           }}
         />
         <Gap height={12} />
