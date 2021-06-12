@@ -1,28 +1,23 @@
-import React, {useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {Button, Gap, TextInput, Header} from '../../components';
+import React from 'react';
+import {StyleSheet, View} from 'react-native';
+import {useDispatch} from 'react-redux';
+import {Button, Gap, Header, TextInput} from '../../components';
+import {signInAction} from '../../redux/action/auth';
+import {setLoading} from '../../redux/action/global';
 import {colors} from '../../utils';
 import useForm from '../../utils/UseForm';
-import Axios from 'axios';
 
 const SignIn = ({navigation}) => {
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
   const [form, setForm] = useForm({
-    email: 'ayuno@yolo.id',
+    email: 'r@yolo.id',
     password: 'Jakarta48Nabilah',
   });
+  const dispatch = useDispatch();
   const onSubmit = () => {
-    // console.log(['email', form.email, 'password', form.password]);
-    console.log('form :', form);
-    // Axios.post('http://foodmarket-backend.buildwithangga.id/api/login', form)
-    //   .then((res) => {
-    //     console.log('success', res.data.meta.status);
-    //   })
-    //   .catch((err) => {
-    //     console.log('error', err);
-    //   });
+    dispatch(setLoading(true));
+    dispatch(signInAction(form, navigation));
   };
+
   return (
     <View style={styles.page}>
       <Header title="Sign In" subTitle="Find your best ever meal" />

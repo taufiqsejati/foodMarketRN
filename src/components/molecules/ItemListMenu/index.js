@@ -1,26 +1,28 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {IcNext} from '../../../assets';
 import {colors, fonts} from '../../../utils';
-const ItemListMenu = ({text}) => {
+const ItemListMenu = ({text, onPress}) => {
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingVertical: 7,
-      }}>
-      <Text
+    <TouchableOpacity onPress={onPress}>
+      <View
         style={{
-          fontSize: 14,
-          fontFamily: fonts.primary.normal,
-          color: colors.text.primary,
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          paddingVertical: 7,
         }}>
-        {text}
-      </Text>
-      <IcNext />
-    </View>
+        <Text
+          style={{
+            fontSize: 14,
+            fontFamily: fonts.primary.normal,
+            color: colors.text.primary,
+          }}>
+          {text}
+        </Text>
+        <IcNext />
+      </View>
+    </TouchableOpacity>
   );
 };
 

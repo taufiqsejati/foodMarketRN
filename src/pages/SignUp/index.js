@@ -19,7 +19,7 @@ const SignUp = ({navigation}) => {
   const dispatch = useDispatch();
   const [form, setForm] = useForm({
     name: 'ayuna',
-    email: 'ayuna@yolo.id',
+    email: 'r@yolo.id',
     password: 'Jakarta48Nabilah',
   });
   const [photo, setPhoto] = useState('');

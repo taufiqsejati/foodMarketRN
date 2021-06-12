@@ -1,9 +1,9 @@
-import Axios from 'axios';
 import React from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {Button, Gap, Header, Select, TextInput} from '../../components';
-import {colors, fonts, showMessage} from '../../utils';
+import {setLoading, signUpAction} from '../../redux/action';
+import {colors, fonts} from '../../utils';
 import useForm from '../../utils/UseForm';
 
 const SignUpAddress = ({navigation}) => {
@@ -13,7 +13,7 @@ const SignUpAddress = ({navigation}) => {
     houseNumber: '289',
     city: 'Bekasi',
   });
-  const registerReducer = useSelector((state) => state.registerReducer);
+  const {registerReducer, photoReducer} = useSelector((state) => state);
   const dispatch = useDispatch();
 
   onSubmit = () => {
@@ -22,20 +22,8 @@ const SignUpAddress = ({navigation}) => {
       ...form,
       ...registerReducer,
     };
-    console.log('data register :', data);
-    dispatch({type: 'SET_LOADING', value: true});
-
-    Axios.post('http://foodmarket-backend.buildwithangga.id/api/register', data)
-      .then((res) => {
-        console.log('data succes :', res.data);
-        dispatch({type: 'SET_LOADING', value: false});
-        showMessage('Register Success', 'success');
-        navigation.replace('SuccessSignUp');
-      })
-      .catch((err) => {
-        dispatch({type: 'SET_LOADING', value: false});
-        showMessage(err.response.data.message);
-      });
+    dispatch(setLoading(true));
+    dispatch(signUpAction(data, photoReducer, navigation));
   };
   return (
     <View style={styles.page}>
@@ -48,13 +36,6 @@ const SignUpAddress = ({navigation}) => {
           }}
         />
         <View style={styles.container}>
-          <View style={styles.photo}>
-            <View style={styles.borderPhoto}>
-              <View style={styles.photoContainer}>
-                <Text style={styles.addPhoto}>Add Photo</Text>
-              </View>
-            </View>
-          </View>
           <TextInput
             label="Phone No."
             placeholder="Type your phone number"

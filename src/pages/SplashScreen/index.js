@@ -2,12 +2,19 @@ import React, {useEffect} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {Logo} from '../../assets';
 import {Gap} from '../../components/atoms';
-import {colors, fonts} from '../../utils';
+import {colors, fonts, getData} from '../../utils';
 
 const SplashScreen = ({navigation}) => {
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('AuthApp');
+      getData('token').then((res) => {
+        console.log('token', res);
+        if (res) {
+          navigation.replace('MainApp');
+        } else {
+          navigation.replace('AuthApp');
+        }
+      });
     }, 2000);
   }, []);
 
