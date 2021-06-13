@@ -50,7 +50,9 @@ const ItemListFood = ({
             </View>
           </>
         );
-      case 'past-order':
+      case 'past-orders':
+        // item past orders
+        const formatedDate = new Date(date).toDateString();
         return (
           <>
             <View style={styles.content}>
@@ -62,8 +64,8 @@ const ItemListFood = ({
               </View>
             </View>
             <View>
-              <Text style={styles.date}>{date}</Text>
-              <Text style={styles.status}>{status}</Text>
+              <Text style={styles.date}>{formatedDate}</Text>
+              <Text style={styles.status(status)}>{status}</Text>
             </View>
           </>
         );
@@ -93,11 +95,11 @@ const ItemListFood = ({
 export default ItemListFood;
 
 const styles = StyleSheet.create({
-  status: {
+  status: (status) => ({
     fontSize: 10,
     fontFamily: fonts.primary.normal,
-    color: colors.error,
-  },
+    color: status === 'CANCELLED' ? colors.error : colors.text.tertiary,
+  }),
   date: {
     fontSize: 10,
     fontFamily: fonts.primary.normal,

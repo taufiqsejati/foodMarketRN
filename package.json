@@ -8,6 +8,9 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
+    "testing-release": "npx react-native run-android --variant=release",
+    "release-build": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/release/ && cd android && gradlew assembleRelease && cd ..",
+    "release-bundle": "cd android && gradlew bundleRelease && cd ..",
     "gradlew": "cd android && gradlew clean && cd..",
     "node": "rm -rf node_modules/ && npm install"
   },
